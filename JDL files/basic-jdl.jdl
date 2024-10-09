@@ -1,0 +1,17 @@
+entity Employee {
+  name String required,
+  age Integer,
+  position String
+}
+
+entity Department {
+  name String required
+}
+
+relationship OneToMany {
+  Department{employee} to Employee{department(name)}
+}
+
+paginate Employee, Department with infinite-scroll
+
+dto * with mapstruct

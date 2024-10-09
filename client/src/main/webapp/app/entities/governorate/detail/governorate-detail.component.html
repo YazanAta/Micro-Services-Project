@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (governorate(); as governorateRef) {
+      <div>
+        <h2 data-cy="governorateDetailsHeading"><span jhiTranslate="clientApp.governorate.detail.title">Governorate</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ governorateRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="clientApp.governorate.name">Name</span></dt>
+          <dd>
+            <span>{{ governorateRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="clientApp.governorate.area">Area</span></dt>
+          <dd>
+            <span>{{ governorateRef.area }}</span>
+          </dd>
+          <dt><span jhiTranslate="clientApp.governorate.population">Population</span></dt>
+          <dd>
+            <span>{{ governorateRef.population }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/governorate', governorateRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

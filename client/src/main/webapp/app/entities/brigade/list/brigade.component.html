@@ -1,0 +1,115 @@
+<div>
+  <h2 id="page-heading" data-cy="BrigadeHeading">
+    <span jhiTranslate="clientApp.brigade.home.title">Brigades</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="clientApp.brigade.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-brigade"
+        [routerLink]="['/brigade/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="clientApp.brigade.home.createLabel">Create a new Brigade</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (brigades?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="clientApp.brigade.home.notFound">No Brigades found</span>
+    </div>
+  }
+
+  @if (brigades && brigades.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="name">
+              <div class="d-flex">
+                <span jhiTranslate="clientApp.brigade.name">Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="type">
+              <div class="d-flex">
+                <span jhiTranslate="clientApp.brigade.type">Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="establishedYear">
+              <div class="d-flex">
+                <span jhiTranslate="clientApp.brigade.establishedYear">Established Year</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="governorate.id">
+              <div class="d-flex">
+                <span jhiTranslate="clientApp.brigade.governorate">Governorate</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (brigade of brigades; track trackId(brigade)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/brigade', brigade.id, 'view']">{{ brigade.id }}</a>
+              </td>
+              <td>{{ brigade.name }}</td>
+              <td>{{ brigade.type }}</td>
+              <td>{{ brigade.establishedYear }}</td>
+              <td>
+                @if (brigade.governorate) {
+                  <div>
+                    <a [routerLink]="['/governorate', brigade.governorate.id, 'view']">{{ brigade.governorate.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/brigade', brigade.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/brigade', brigade.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(brigade)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

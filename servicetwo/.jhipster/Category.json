@@ -1,0 +1,23 @@
+{
+  "annotations": {
+    "changelogDate": "20241007134054"
+  },
+  "applications": "*",
+  "clientRootFolder": "servicetwo",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "servicetwo",
+  "name": "Category",
+  "relationships": [],
+  "searchEngine": "no"
+}

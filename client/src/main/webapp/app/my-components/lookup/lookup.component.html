@@ -1,0 +1,13 @@
+@if (entities.length > 0) {
+    <div>
+        <select id="entity-select" (change)="onSelect($event)">
+            <option *ngFor="let entity of entities" [value]="entity.name">
+            {{ entity[labelKey] }}
+            </option>
+        </select>
+    </div>
+}
+
+@if (entities.length === 0) {
+    <p>No data available</p>
+}

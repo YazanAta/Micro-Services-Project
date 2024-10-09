@@ -1,0 +1,23 @@
+{
+  "generator-jhipster": {
+    "baseName": "client",
+    "clientFramework": "angular",
+    "clientTestFrameworks": [],
+    "clientTheme": "none",
+    "creationTimestamp": 1728371980086,
+    "devServerPort": 4200,
+    "enableTranslation": true,
+    "entities": ["Brigade", "Governorate", "Municipality"],
+    "jhipsterVersion": "8.7.1",
+    "languages": ["en"],
+    "lastLiquibaseTimestamp": 1728373233000,
+    "microfrontend": null,
+    "microfrontends": [],
+    "monorepository": true,
+    "nativeLanguage": "en",
+    "skipCommitHook": true,
+    "skipServer": true,
+    "testFrameworks": [],
+    "withAdminUi": true
+  }
+}

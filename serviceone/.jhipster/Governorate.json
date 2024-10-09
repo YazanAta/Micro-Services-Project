@@ -1,0 +1,37 @@
+{
+  "annotations": {
+    "changelogDate": "20241008070227"
+  },
+  "applications": "*",
+  "clientRootFolder": "serviceone",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "population",
+      "fieldType": "Integer"
+    }
+  ],
+  "microserviceName": "serviceone",
+  "name": "Governorate",
+  "relationships": [
+    {
+      "otherEntityName": "brigade",
+      "otherEntityRelationshipName": "governorate",
+      "relationshipName": "brigades",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,29 @@
+{
+  "annotations": {
+    "changelogDate": "20241007134100"
+  },
+  "applications": "*",
+  "clientRootFolder": "servicetwo",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "shipmentDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "trackingNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shipmentStatus",
+      "fieldType": "ShipmentStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PENDING,SHIPPED,IN_TRANSIT,DELIVERED,RETURNED"
+    }
+  ],
+  "microserviceName": "servicetwo",
+  "name": "Shipment",
+  "relationships": [],
+  "searchEngine": "no"
+}

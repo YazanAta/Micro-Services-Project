@@ -1,0 +1,26 @@
+{
+  "annotations": {
+    "changelogDate": "20241008074033"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Municipality",
+  "relationships": [
+    {
+      "otherEntityName": "brigade",
+      "otherEntityRelationshipName": "municipality",
+      "relationshipName": "brigades",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "serviceClass"
+}

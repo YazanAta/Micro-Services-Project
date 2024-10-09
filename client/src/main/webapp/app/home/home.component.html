@@ -1,0 +1,35 @@
+<div class="row">
+
+  <div class="col-md-9">
+    <div>
+      @if (account() !== null) {
+        <div class="alert alert-success">
+          @if (account(); as accountRef) {
+            <span id="home-logged-message" jhiTranslate="home.logged.message" [translateValues]="{ username: accountRef.login }"
+              >You are logged in as user &quot;{{ accountRef.login }}&quot;.</span
+            >
+          }
+        </div>
+        <div>
+
+          <!-- For Governorate -->
+          <label for="entity-select">Select an governorate:</label>
+          <jhi-lookup [service]="governorateService" flag="governorate" labelKey="name" (selected)="onGovernorateSelected($event)"></jhi-lookup>
+
+          @if (selectedGovernorate()) {
+            <!-- For Brigade -->
+            <label for="entity-select">Select an brigade:</label>
+            <jhi-lookup [service]="brigadeService" flag="brigade" id="{{selectedGovernorate().id}}" labelKey="name" (selected)="onBrigadeSelected($event)"></jhi-lookup>
+          }
+
+          @if (selectedBrigade()) {
+            <!-- For Municipality -->
+            <label for="entity-select">Select an municipality:</label>
+            <jhi-lookup [service]="municipalityService" flag="municipality" id="{{selectedBrigade().id}}" labelKey="name" (selected)="onMunicipalitySelected($event)"></jhi-lookup>
+          }
+
+        </div>
+      }
+    </div>
+  </div>
+</div>

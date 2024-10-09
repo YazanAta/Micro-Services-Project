@@ -1,0 +1,27 @@
+{
+  "clientApp": {
+    "governorate": {
+      "home": {
+        "title": "محافظات",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Governorate",
+        "createOrEditLabel": "Create or edit a Governorate",
+        "notFound": "No Governorates found"
+      },
+      "created": "A new Governorate is created with identifier {{ param }}",
+      "updated": "A Governorate is updated with identifier {{ param }}",
+      "deleted": "A Governorate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Governorate {{ id }}?"
+      },
+      "detail": {
+        "title": "Governorate"
+      },
+      "id": "ID",
+      "name": "Name",
+      "area": "Area",
+      "population": "Population",
+      "brigades": "Brigades"
+    }
+  }
+}

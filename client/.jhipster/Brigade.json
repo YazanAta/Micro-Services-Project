@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20241008074031"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "establishedYear",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Brigade",
+  "relationships": [
+    {
+      "otherEntityName": "municipality",
+      "otherEntityRelationshipName": "brigades",
+      "relationshipName": "municipality",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "governorate",
+      "otherEntityRelationshipName": "brigades",
+      "relationshipName": "governorate",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "service": "serviceClass"
+}

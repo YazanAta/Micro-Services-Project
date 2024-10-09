@@ -1,0 +1,95 @@
+entity Order {
+    orderDate Instant required,
+    status OrderStatus required,
+    totalAmount BigDecimal required
+}
+entity Customer {
+    firstName String required,
+    lastName String required,
+    email String required unique,
+    phoneNumber String,
+    address String,
+    city String,
+    country String,
+    birthdate LocalDate
+}
+
+entity Shipment {
+    shipmentDate Instant required,
+    trackingNumber String,
+    shipmentStatus ShipmentStatus required
+}
+
+entity OrderItem {
+    quantity Integer required,
+    price BigDecimal required
+}
+
+
+entity Product {
+    name String required,
+    description TextBlob,
+    price BigDecimal required,
+    stockQuantity Integer required,
+    releaseDate Instant,
+    imageUrl String
+}
+
+entity Category {
+    name String required,
+    description String
+}
+
+entity Payment {
+    paymentDate Instant required,
+    amount BigDecimal required,
+    paymentMethod PaymentMethod required
+}
+
+// Define relationships
+relationship ManyToOne {
+    Product{category(name)} to Category
+}
+
+relationship ManyToOne {
+    Order{customer(email)} to Customer
+}
+
+relationship ManyToMany {
+    Order{product(name)} to Product{order}
+}
+
+relationship OneToMany {
+    Order{orderItem} to OrderItem{order}
+}
+
+relationship OneToOne {
+    Order{payment} to Payment
+}
+
+relationship OneToOne {
+    Order{shipment} to Shipment
+}
+
+// Define enums
+enum OrderStatus {
+    PENDING, CONFIRMED, SHIPPED, DELIVERED, CANCELLED
+}
+
+enum PaymentMethod {
+    CREDIT_CARD, PAYPAL, BANK_TRANSFER, CASH_ON_DELIVERY
+}
+
+enum ShipmentStatus {
+    PENDING, SHIPPED, IN_TRANSIT, DELIVERED, RETURNED
+}
+
+// Service Layer
+service Customer with serviceClass
+service Order with serviceClass
+service Payment with serviceClass
+
+// Pagination
+paginate Product with infinite-scroll
+paginate Order with pagination
+paginate Customer with pagination

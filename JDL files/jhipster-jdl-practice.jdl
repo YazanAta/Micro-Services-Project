@@ -1,0 +1,28 @@
+entity Governorate {
+  name String required,
+  area Double,
+  population Integer
+}
+
+entity Brigade {
+  name String required,
+  type String,
+  establishedYear Integer
+}
+
+entity Municipality {
+  name String required
+}
+
+// Relationships
+relationship OneToMany {
+  Governorate{brigades} to Brigade{governorate required}
+}
+
+relationship OneToMany {
+  Brigade{municipality} to Municipality{brigade required}
+}
+
+// Service and DTO configurations
+dto Governorate,Brigade,Municipality with mapstruct
+service Governorate, Brigade, Municipality with serviceClass

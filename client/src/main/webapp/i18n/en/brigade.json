@@ -1,0 +1,28 @@
+{
+  "clientApp": {
+    "brigade": {
+      "home": {
+        "title": "الوية",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Brigade",
+        "createOrEditLabel": "Create or edit a Brigade",
+        "notFound": "No Brigades found"
+      },
+      "created": "A new Brigade is created with identifier {{ param }}",
+      "updated": "A Brigade is updated with identifier {{ param }}",
+      "deleted": "A Brigade is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Brigade {{ id }}?"
+      },
+      "detail": {
+        "title": "Brigade"
+      },
+      "id": "ID",
+      "name": "Name",
+      "type": "Type",
+      "establishedYear": "Established Year",
+      "governorate": "Governorate",
+      "municipality": "Municipality"
+    }
+  }
+}

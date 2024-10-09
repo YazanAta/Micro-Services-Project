@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (brigade(); as brigadeRef) {
+      <div>
+        <h2 data-cy="brigadeDetailsHeading"><span jhiTranslate="clientApp.brigade.detail.title">Brigade</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ brigadeRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="clientApp.brigade.name">Name</span></dt>
+          <dd>
+            <span>{{ brigadeRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="clientApp.brigade.type">Type</span></dt>
+          <dd>
+            <span>{{ brigadeRef.type }}</span>
+          </dd>
+          <dt><span jhiTranslate="clientApp.brigade.establishedYear">Established Year</span></dt>
+          <dd>
+            <span>{{ brigadeRef.establishedYear }}</span>
+          </dd>
+          <dt><span jhiTranslate="clientApp.brigade.governorate">Governorate</span></dt>
+          <dd>
+            @if (brigade()!.governorate) {
+              <div>
+                <a [routerLink]="['/governorate', brigade()!.governorate?.id, 'view']">{{ brigadeRef.governorate?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/brigade', brigadeRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

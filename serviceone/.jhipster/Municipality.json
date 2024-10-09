@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20241008070228"
+  },
+  "applications": "*",
+  "clientRootFolder": "serviceone",
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "microserviceName": "serviceone",
+  "name": "Municipality",
+  "relationships": [
+    {
+      "otherEntityName": "brigade",
+      "otherEntityRelationshipName": "municipality",
+      "relationshipName": "brigades",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

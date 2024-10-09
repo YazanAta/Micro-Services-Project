@@ -1,0 +1,90 @@
+entity User {
+  login String required minlength(5) unique,
+  password String required minlength(8),
+  firstName String required,
+  lastName String required,
+  email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/) unique,
+  activated Boolean,
+  langKey String
+}
+
+entity Product {
+  name String required,
+  description TextBlob,
+  price BigDecimal required min(0),
+  quantity Integer required min(0),
+  imageUrl String
+}
+
+entity Order {
+  orderDate Instant required,
+  totalAmount BigDecimal required min(0)
+}
+
+entity OrderItem {
+  quantity Integer required min(1),
+  unitPrice BigDecimal required min(0)
+}
+
+entity Payment {
+  paymentDate Instant required,
+  paymentType PaymentMethod required,
+  paymentStatus PaymentStatus required,
+  amount BigDecimal required min(0)
+}
+
+enum PaymentMethod {
+  CREDIT_CARD, PAYPAL, BANK_TRANSFER
+}
+
+enum PaymentStatus {
+  PENDING, COMPLETED, FAILED, REFUNDED
+}
+
+relationship ManyToOne {
+  OrderItem{product} to Product,
+  Payment{order} to Order
+}
+
+relationship OneToMany {
+  Order{orderItems} to OrderItem,
+  User{orders} to Order
+}
+
+relationship ManyToMany {
+  User{wishlist} to Product{wishlistedBy}
+}
+
+dto User, Product, Order, OrderItem, Payment with mapstruct
+
+service User, Order, Payment with serviceClass
+
+paginate Product, OrderItem with infinite-scroll
+
+filter Product, Order, Payment
+
+/**
+ * Audit entity for tracking user actions on orders and payments
+ */
+entity Audit {
+  action String required,
+  actionDate Instant required,
+  userLogin String required
+}
+
+relationship ManyToOne {
+  Audit{user(login)} to User,
+  Audit{order} to Order
+}
+
+entity Address {
+  addressLine1 String required,
+  addressLine2 String,
+  city String required,
+  postalCode String required,
+  country String required
+}
+
+relationship OneToOne {
+  Order{shippingAddress} to Address
+}

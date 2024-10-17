@@ -42,7 +42,7 @@ public class Brigade implements Serializable {
 
     @ManyToOne(optional = false)
     @NotNull
-    @JsonIgnoreProperties(value = { "brigade" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "brigades" }, allowSetters = true)
     private Governorate governorate;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -105,10 +105,10 @@ public class Brigade implements Serializable {
 
     public void setMunicipalities(Set<Municipality> municipalities) {
         if (this.municipalities != null) {
-            this.municipalities.forEach(i -> i.setBrigades(null));
+            this.municipalities.forEach(i -> i.setBrigade(null));
         }
         if (municipalities != null) {
-            municipalities.forEach(i -> i.setBrigades(this));
+            municipalities.forEach(i -> i.setBrigade(this));
         }
         this.municipalities = municipalities;
     }
@@ -120,13 +120,13 @@ public class Brigade implements Serializable {
 
     public Brigade addMunicipality(Municipality municipality) {
         this.municipalities.add(municipality);
-        municipality.setBrigades(this);
+        municipality.setBrigade(this);
         return this;
     }
 
     public Brigade removeMunicipality(Municipality municipality) {
         this.municipalities.remove(municipality);
-        municipality.setBrigades(null);
+        municipality.setBrigade(null);
         return this;
     }
 

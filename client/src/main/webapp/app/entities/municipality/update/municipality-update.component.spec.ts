@@ -49,12 +49,12 @@ describe('Municipality Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Brigade query and add missing value', () => {
       const municipality: IMunicipality = { id: 456 };
-      const brigades: IBrigade = { id: 22265 };
-      municipality.brigades = brigades;
+      const brigade: IBrigade = { id: 22265 };
+      municipality.brigade = brigade;
 
       const brigadeCollection: IBrigade[] = [{ id: 10255 }];
       jest.spyOn(brigadeService, 'query').mockReturnValue(of(new HttpResponse({ body: brigadeCollection })));
-      const additionalBrigades = [brigades];
+      const additionalBrigades = [brigade];
       const expectedCollection: IBrigade[] = [...additionalBrigades, ...brigadeCollection];
       jest.spyOn(brigadeService, 'addBrigadeToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -71,13 +71,13 @@ describe('Municipality Management Update Component', () => {
 
     it('Should update editForm', () => {
       const municipality: IMunicipality = { id: 456 };
-      const brigades: IBrigade = { id: 31692 };
-      municipality.brigades = brigades;
+      const brigade: IBrigade = { id: 31692 };
+      municipality.brigade = brigade;
 
       activatedRoute.data = of({ municipality });
       comp.ngOnInit();
 
-      expect(comp.brigadesSharedCollection).toContain(brigades);
+      expect(comp.brigadesSharedCollection).toContain(brigade);
       expect(comp.municipality).toEqual(municipality);
     });
   });

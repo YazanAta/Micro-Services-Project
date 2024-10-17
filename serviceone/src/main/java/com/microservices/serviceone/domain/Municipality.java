@@ -60,16 +60,16 @@ public class Municipality implements Serializable {
         this.name = name;
     }
 
-    public Brigade getBrigades() {
+    public Brigade getBrigade() {
         return this.brigade;
     }
 
-    public void setBrigades(Brigade brigade) {
+    public void setBrigade(Brigade brigade) {
         this.brigade = brigade;
     }
 
-    public Municipality brigades(Brigade brigade) {
-        this.setBrigades(brigade);
+    public Municipality brigade(Brigade brigade) {
+        this.setBrigade(brigade);
         return this;
     }
 

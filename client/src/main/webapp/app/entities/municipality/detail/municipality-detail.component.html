@@ -19,11 +19,11 @@
           <dd>
             <span>{{ municipalityRef.name }}</span>
           </dd>
-          <dt><span jhiTranslate="clientApp.municipality.brigades">Brigades</span></dt>
+          <dt><span jhiTranslate="clientApp.municipality.brigade">Brigade</span></dt>
           <dd>
-            @if (municipality()!.brigades) {
+            @if (municipality()!.brigade) {
               <div>
-                <a [routerLink]="['/brigade', municipality()!.brigades?.id, 'view']">{{ municipalityRef.brigades?.id }}</a>
+                <a [routerLink]="['/brigade', municipality()!.brigade?.id, 'view']">{{ municipalityRef.brigade?.id }}</a>
               </div>
             }
           </dd>

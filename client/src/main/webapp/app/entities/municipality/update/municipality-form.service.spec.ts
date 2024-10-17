@@ -21,7 +21,7 @@ describe('Municipality Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             name: expect.any(Object),
-            brigades: expect.any(Object),
+            brigade: expect.any(Object),
           }),
         );
       });
@@ -33,7 +33,7 @@ describe('Municipality Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             name: expect.any(Object),
-            brigades: expect.any(Object),
+            brigade: expect.any(Object),
           }),
         );
       });

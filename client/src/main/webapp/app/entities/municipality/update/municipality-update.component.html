@@ -33,16 +33,16 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_brigades" jhiTranslate="clientApp.municipality.brigades">Brigades</label>
+          <label class="form-label" for="field_brigade" jhiTranslate="clientApp.municipality.brigade">Brigade</label>
           <select
             class="form-control"
-            id="field_brigades"
-            data-cy="brigades"
-            name="brigades"
-            formControlName="brigades"
+            id="field_brigade"
+            data-cy="brigade"
+            name="brigade"
+            formControlName="brigade"
             [compareWith]="compareBrigade"
           >
-            @if (editForm.get(['brigades'])!.value == null) {
+            @if (editForm.get(['brigade'])!.value == null) {
               <option [ngValue]="null" selected></option>
             }
             @for (brigadeOption of brigadesSharedCollection; track $index) {
@@ -50,9 +50,9 @@
             }
           </select>
         </div>
-        @if (editForm.get(['brigades'])!.invalid && (editForm.get(['brigades'])!.dirty || editForm.get(['brigades'])!.touched)) {
+        @if (editForm.get(['brigade'])!.invalid && (editForm.get(['brigade'])!.dirty || editForm.get(['brigade'])!.touched)) {
           <div>
-            @if (editForm.get(['brigades'])?.errors?.required) {
+            @if (editForm.get(['brigade'])?.errors?.required) {
               <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
             }
           </div>

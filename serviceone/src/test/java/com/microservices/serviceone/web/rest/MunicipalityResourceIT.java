@@ -80,7 +80,7 @@ class MunicipalityResourceIT {
         } else {
             brigade = TestUtil.findAll(em, Brigade.class).get(0);
         }
-        municipality.setBrigades(brigade);
+        municipality.setBrigade(brigade);
         return municipality;
     }
 
@@ -101,7 +101,7 @@ class MunicipalityResourceIT {
         } else {
             brigade = TestUtil.findAll(em, Brigade.class).get(0);
         }
-        updatedMunicipality.setBrigades(brigade);
+        updatedMunicipality.setBrigade(brigade);
         return updatedMunicipality;
     }
 

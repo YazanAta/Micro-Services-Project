@@ -85,7 +85,7 @@ export class MunicipalityUpdateComponent implements OnInit {
 
     this.brigadesSharedCollection = this.brigadeService.addBrigadeToCollectionIfMissing<IBrigade>(
       this.brigadesSharedCollection,
-      municipality.brigades,
+      municipality.brigade,
     );
   }
 
@@ -94,7 +94,7 @@ export class MunicipalityUpdateComponent implements OnInit {
       .query()
       .pipe(map((res: HttpResponse<IBrigade[]>) => res.body ?? []))
       .pipe(
-        map((brigades: IBrigade[]) => this.brigadeService.addBrigadeToCollectionIfMissing<IBrigade>(brigades, this.municipality?.brigades)),
+        map((brigades: IBrigade[]) => this.brigadeService.addBrigadeToCollectionIfMissing<IBrigade>(brigades, this.municipality?.brigade)),
       )
       .subscribe((brigades: IBrigade[]) => (this.brigadesSharedCollection = brigades));
   }

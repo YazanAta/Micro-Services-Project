@@ -24,14 +24,14 @@ class MunicipalityTest {
     }
 
     @Test
-    void brigadesTest() {
+    void brigadeTest() {
         Municipality municipality = getMunicipalityRandomSampleGenerator();
         Brigade brigadeBack = getBrigadeRandomSampleGenerator();
 
-        municipality.setBrigades(brigadeBack);
-        assertThat(municipality.getBrigades()).isEqualTo(brigadeBack);
+        municipality.setBrigade(brigadeBack);
+        assertThat(municipality.getBrigade()).isEqualTo(brigadeBack);
 
-        municipality.brigades(null);
-        assertThat(municipality.getBrigades()).isNull();
+        municipality.brigade(null);
+        assertThat(municipality.getBrigade()).isNull();
     }
 }

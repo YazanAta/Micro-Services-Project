@@ -1,0 +1,43 @@
+application {
+  config {
+    baseName client
+    clientFramework angular
+    clientTheme none
+    creationTimestamp 1728371980086
+    enableTranslation true
+    jhipsterVersion "8.7.1"
+    languages [en]
+    microfrontends []
+    nativeLanguage en
+    skipServer true
+    testFrameworks []
+    withAdminUi true
+  }
+
+  entities Brigade, Governorate, Municipality
+}
+
+@ChangelogDate("20241008074031")
+entity Brigade {
+  name String required
+  type String
+  establishedYear Integer
+}
+@ChangelogDate("20241008074032")
+entity Governorate {
+  name String required
+  area Double
+  population Integer
+}
+@ChangelogDate("20241008074033")
+entity Municipality {
+  name String required
+}
+
+relationship OneToMany {
+  Brigade{municipality} to Municipality{brigade required}
+  Governorate{brigades} to Brigade{governorate required}
+}
+
+dto Brigade, Governorate, Municipality with mapstruct
+service Brigade, Governorate, Municipality with serviceClass

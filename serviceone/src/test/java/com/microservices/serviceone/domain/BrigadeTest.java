@@ -33,19 +33,19 @@ class BrigadeTest {
 
         brigade.addMunicipality(municipalityBack);
         assertThat(brigade.getMunicipalities()).containsOnly(municipalityBack);
-        assertThat(municipalityBack.getBrigades()).isEqualTo(brigade);
+        assertThat(municipalityBack.getBrigade()).isEqualTo(brigade);
 
         brigade.removeMunicipality(municipalityBack);
         assertThat(brigade.getMunicipalities()).doesNotContain(municipalityBack);
-        assertThat(municipalityBack.getBrigades()).isNull();
+        assertThat(municipalityBack.getBrigade()).isNull();
 
         brigade.municipalities(new HashSet<>(Set.of(municipalityBack)));
         assertThat(brigade.getMunicipalities()).containsOnly(municipalityBack);
-        assertThat(municipalityBack.getBrigades()).isEqualTo(brigade);
+        assertThat(municipalityBack.getBrigade()).isEqualTo(brigade);
 
         brigade.setMunicipalities(new HashSet<>());
         assertThat(brigade.getMunicipalities()).doesNotContain(municipalityBack);
-        assertThat(municipalityBack.getBrigades()).isNull();
+        assertThat(municipalityBack.getBrigade()).isNull();
     }
 
     @Test

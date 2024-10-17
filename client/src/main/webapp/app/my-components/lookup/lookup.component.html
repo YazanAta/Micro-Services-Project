@@ -1,13 +1,18 @@
-@if (entities.length > 0) {
-    <div>
-        <select id="entity-select" (change)="onSelect($event)">
-            <option *ngFor="let entity of entities" [value]="entity.name">
-            {{ entity[labelKey] }}
-            </option>
-        </select>
-    </div>
-}
+<div class="container mt-4">
+    @if (entities.length > 0) {
+        <div class="form-group">
+            <label for="entity-select" class="form-label">Select an Entity</label>
+            <select id="entity-select" class="form-select" (change)="onSelect($event)">
+                <option value="" disabled selected>Select an option</option>
+                <option *ngFor="let entity of entities" [value]="entity.name">
+                    {{ entity[labelKey] }}
+                </option>
+            </select>
+        </div>
 
-@if (entities.length === 0) {
-    <p>No data available</p>
-}
+    } @if (entities.length === 0) {
+        <div class="alert alert-warning" role="alert">
+            No data available
+        </div>
+    }
+</div>

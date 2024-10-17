@@ -16,7 +16,7 @@
     {
       "otherEntityName": "brigade",
       "otherEntityRelationshipName": "municipality",
-      "relationshipName": "brigades",
+      "relationshipName": "brigade",
       "relationshipSide": "right",
       "relationshipType": "many-to-one",
       "relationshipValidateRules": "required"

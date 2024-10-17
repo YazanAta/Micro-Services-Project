@@ -59,6 +59,6 @@ public class MunicipalityAsserts {
     public static void assertMunicipalityUpdatableRelationshipsEquals(Municipality expected, Municipality actual) {
         assertThat(expected)
             .as("Verify Municipality relationships")
-            .satisfies(e -> assertThat(e.getBrigades()).as("check brigades").isEqualTo(actual.getBrigades()));
+            .satisfies(e -> assertThat(e.getBrigade()).as("check brigade").isEqualTo(actual.getBrigade()));
     }
 }

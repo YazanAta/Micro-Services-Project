@@ -69,7 +69,7 @@ public class MunicipalityDTO implements Serializable {
         return "MunicipalityDTO{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", brigades=" + getBrigade() +
+            ", brigade=" + getBrigade() +
             "}";
     }
 }

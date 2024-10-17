@@ -19,7 +19,7 @@ type MunicipalityFormDefaults = Pick<NewMunicipality, 'id'>;
 type MunicipalityFormGroupContent = {
   id: FormControl<IMunicipality['id'] | NewMunicipality['id']>;
   name: FormControl<IMunicipality['name']>;
-  brigade: FormControl<IMunicipality['brigades']>;
+  brigade: FormControl<IMunicipality['brigade']>;
 };
 
 export type MunicipalityFormGroup = FormGroup<MunicipalityFormGroupContent>;
@@ -42,7 +42,7 @@ export class MunicipalityFormService {
       name: new FormControl(municipalityRawValue.name, {
         validators: [Validators.required],
       }),
-      brigade: new FormControl(municipalityRawValue.brigades, {
+      brigade: new FormControl(municipalityRawValue.brigade, {
         validators: [Validators.required],
       }),
     });

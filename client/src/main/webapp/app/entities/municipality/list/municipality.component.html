@@ -49,9 +49,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="brigades.id">
+            <th scope="col" jhiSortBy="brigade.id">
               <div class="d-flex">
-                <span jhiTranslate="clientApp.municipality.brigades">Brigades</span>
+                <span jhiTranslate="clientApp.municipality.brigade">Brigade</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -66,9 +66,9 @@
               </td>
               <td>{{ municipality.name }}</td>
               <td>
-                @if (municipality.brigades) {
+                @if (municipality.brigade) {
                   <div>
-                    <a [routerLink]="['/brigade', municipality.brigades.id, 'view']">{{ municipality.brigades.id }}</a>
+                    <a [routerLink]="['/brigade', municipality.brigade.id, 'view']">{{ municipality.brigade.id }}</a>
                   </div>
                 }
               </td>

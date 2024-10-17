@@ -26,7 +26,7 @@
   "relationships": [
     {
       "otherEntityName": "municipality",
-      "otherEntityRelationshipName": "brigades",
+      "otherEntityRelationshipName": "brigade",
       "relationshipName": "municipality",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
